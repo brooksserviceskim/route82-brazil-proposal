@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ROUTE82 × Brazil — K-Beauty Distribution Partnership Proposal</title>
+<meta name="description" content="ROUTE82 Korea-side operating partner proposal for a Brazil K-Beauty distribution business — trilingual (KO/EN/pt-BR).">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="light">
+
+<header class="topbar" id="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="#welcome" aria-label="ROUTE82">
+      <img class="brand-logo brand-logo-dark" src="assets/route82_logo.png" alt="ROUTE82">
+      <img class="brand-logo brand-logo-light" src="assets/route82_logo_white.png" alt="ROUTE82">
+      <span class="brand-x">×</span>
+      <span class="brand-tag" data-i="brand.partner">Brazil</span>
+    </a>
+    <nav class="mainnav" id="mainnav" aria-label="Section navigation"></nav>
+    <div class="topbar-tools">
+      <div class="lang-toggle" id="langToggle" role="group" aria-label="Language">
+        <button data-lang="ko" class="active">KO</button>
+        <button data-lang="en">EN</button>
+        <button data-lang="pt">PT-BR</button>
+        <button data-lang="koen" title="Korean + English">KO+EN</button>
+        <button data-lang="kopt" title="Korean + Portuguese">KO+PT</button>
+      </div>
+      <button class="icon-btn" id="themeBtn" title="Dark / Light" aria-label="Toggle theme">◐</button>
+      <button class="icon-btn" id="presentBtn" title="Presentation mode" aria-label="Presentation mode">⤢</button>
+      <button class="icon-btn" id="printBtn" title="Print / PDF" aria-label="Print">⎙</button>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+    </div>
+  </div>
+  <div class="scroll-progress" id="scrollProgress"></div>
+</header>
+
+<main id="app"><!-- sections injected by JS --></main>
+
+<div class="modal-overlay" id="sourcesModal" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-label="Sources">
+    <div class="modal-head">
+      <h3 data-i="sources.title">Sources</h3>
+      <button class="icon-btn" id="closeModal" aria-label="Close">✕</button>
+    </div>
+    <div class="modal-body" id="sourcesBody"></div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="foot-inner">
+    <div>
+      <strong>ROUTE82</strong> · <span id="footLegal"></span><br>
+      <span id="footAddr"></span>
+    </div>
+    <div class="foot-right">
+      <a id="footWeb" href="#" target="_blank" rel="noopener"></a> ·
+      <a id="footMail" href="#"></a><br>
+      <span class="foot-disc" data-i="foot.disc"></span>
+    </div>
+  </div>
+</footer>
+
+<button class="totop" id="toTop" aria-label="Back to top">↑</button>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+<script>
+window.addEventListener("load",function(){
+  var note=document.querySelector("#credentials .wb-note");
+  if(!note) return;
+  var box=document.createElement("div");
+  box.innerHTML=
+    '<img src="assets/webinar_walmart_redacted.png" alt="Walmart K-Beauty webinar speaker invitation (emails redacted)" '+
+    'style="display:block;width:100%;border-radius:14px;margin-top:16px;box-shadow:var(--shadow);border:1px solid var(--line)" '+
+    'onerror="this.parentNode.remove()">'+
+    '<p class="wb-note">월마트(Walmart) 온보딩 K-Beauty 웨비나 — 김현우 본부장 \'FDA 인증·라벨링 실무\' 연사 (2026.6.18 예정). '+
+    '이메일 주소는 개인정보 보호를 위해 가렸습니다. / Walmart onboarding K-Beauty webinar — Kim Hyun-woo, FDA speaker (Jun 18, 2026); emails redacted for privacy.</p>';
+  note.parentNode.insertBefore(box, note.nextSibling);
+});
+</script>
+</body>
+</html>
