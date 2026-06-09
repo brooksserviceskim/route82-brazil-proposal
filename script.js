@@ -758,9 +758,9 @@
      INIT
      =================================================================== */
   function init(){
-    let lang="ko",theme="light";
-    try{lang=localStorage.getItem("r82lang")||"ko";theme=localStorage.getItem("r82theme")||"light";}catch(e){}
-    if(["ko","en","pt","koen","kopt"].indexOf(lang)<0) lang="koen"; // migrate legacy "all"
+    let lang="kopt",theme="light";
+    try{lang=localStorage.getItem("r82lang")||"kopt";theme=localStorage.getItem("r82theme")||"light";}catch(e){}
+    if(["ko","en","pt","koen","kopt"].indexOf(lang)<0) lang="kopt"; // default = Korean + Portuguese
     document.body.setAttribute("data-show",lang);
     document.body.setAttribute("data-theme",theme);
 
