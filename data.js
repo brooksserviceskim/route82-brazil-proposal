@@ -88,7 +88,21 @@ const PROPOSAL = {
  en: "At group level, ROUTE82 has engaged with global channels such as:",
  pt: "No nível do grupo, a ROUTE82 tem relação com canais globais como:"
  },
- network: ["Amazon", "Walmart", "Target", "Costco", "SEPHORA", "ULTA", "Nordstrom", "Macy's", "TikTok Shop"],
+ network: [
+ { name: "Amazon", logo: "assets/usnetwork/amazon.png" },
+ { name: "Walmart", logo: "assets/usnetwork/walmart.png" },
+ { name: "Target", logo: "assets/usnetwork/target.png" },
+ { name: "Costco", logo: "assets/usnetwork/costco.png" },
+ { name: "TikTok", logo: "assets/usnetwork/tiktok.png" },
+ { name: "Sephora", logo: "assets/usnetwork/sephora.png" },
+ { name: "Ulta Beauty", logo: "assets/usnetwork/ulta.png" },
+ { name: "Nordstrom", logo: "assets/usnetwork/nordstrom.png" },
+ { name: "Macy's", logo: "assets/usnetwork/macys.png" },
+ { name: "Old Navy", logo: "assets/usnetwork/oldnavy.png" },
+ { name: "Gap", logo: "assets/usnetwork/gap.png" },
+ { name: "SHEIN", logo: "assets/usnetwork/shein.png" },
+ { name: "Amazon Vendor Central", logo: "assets/usnetwork/amazon_vc.png" }
+ ],
  factsLine: {
  ko: "주식회사 루트82 · 사업자등록번호 191-86-00770 · 대표 손창희 · 서울 강남구 · www.route82.co.kr",
  en: "Route82 Corp. · Biz Reg. 191-86-00770 · Rep. Son Chang Hee · Gangnam-gu, Seoul · www.route82.co.kr",

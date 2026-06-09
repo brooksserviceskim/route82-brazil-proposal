@@ -74,7 +74,8 @@
         ${tri(g.desc)}
       </div>`).join("");
     const coBrands = co.ecosystem.brands.map(b=>`<span class="pill brand">${b}</span>`).join("");
-    const coNet = co.network.map(n=>`<span class="pill">${n}</span>`).join("");
+    const coNet = co.network.map(n=>`<div class="brandtile reveal" title="${n.name}"><img loading="lazy" src="${n.logo}" alt="${n.name}"
+        onerror="this.closest('.brandtile').style.display='none'"></div>`).join("");
     h += sec("company",K("회사 소개","About ROUTE82","Sobre a ROUTE82"),co.title,co.tagline,`
       <div class="panel reveal" style="margin-top:24px">${tri(co.intro)}</div>
       <div class="stats reveal" style="margin-top:22px;grid-template-columns:repeat(3,1fr)">${coStats}</div>
@@ -102,7 +103,7 @@
         <div class="panel">
           <div class="subhead">${triIn(co.networkTitle)}</div>
           <p style="margin:4px 0 12px">${triIn(co.networkNote)}</p>
-          <div class="pillrow">${coNet}</div>
+          <div class="netwall">${coNet}</div>
         </div>
       </div>
       <p class="wb-note reveal" style="margin-top:16px">${triIn(co.factsLine)}</p>`);
