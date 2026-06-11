@@ -703,3 +703,76 @@ body[data-show="kopt"] .mainnav .tri-inline .pt::before{content:""}
 .netwall{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:9px;margin-top:8px}
 .netwall .brandtile{height:60px;padding:9px 11px;border-radius:12px}
 @media(max-width:600px){.netwall{grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:8px}.netwall .brandtile{height:52px;padding:8px}}
+
+/* ---------- Partner brand list table ---------- */
+.bl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-sm);background:var(--surface)}
+.bltable{width:100%;border-collapse:collapse;font-size:.84rem;min-width:760px}
+.bltable thead th{position:sticky;top:0;background:var(--grad-navy);color:#fff;font-size:.74rem;letter-spacing:.04em;
+  text-transform:uppercase;padding:11px 12px;text-align:left;z-index:2;white-space:nowrap}
+.bltable td{padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:middle}
+.bltable tbody tr:hover td{background:var(--bg-soft)}
+.bltable .bl-no{color:var(--ink-soft);font-size:.78rem;width:34px;text-align:center}
+.bltable .bl-logo{width:96px}
+.bltable .bl-logo img{max-height:30px;max-width:88px;width:auto;object-fit:contain;display:block}
+.bltable .bl-name{font-weight:800;white-space:nowrap}
+.bltable a{color:#1857a6;text-decoration:none;word-break:break-all}
+.bltable a:hover{text-decoration:underline}
+[data-theme="dark"] .bltable a{color:#93c5fd}
+.bltable .bl-tbc{color:var(--ink-soft);font-size:.8rem}
+.bltable .bl-oy{font-weight:800;color:var(--ink-soft);white-space:nowrap}
+.bltable .bl-oy.yes{color:var(--green-deep)}
+[data-theme="dark"] .bltable .bl-oy.yes{color:var(--green-2)}
+.bltable .bl-rev{font-size:.8rem;color:var(--ink-soft);min-width:160px}
+
+/* Excel download button (brand list) */
+.dl-btn{display:inline-flex;align-items:center;gap:8px;background:var(--grad-green);color:#fff;font-weight:800;
+  font-size:.92rem;padding:12px 22px;border-radius:999px;box-shadow:var(--shadow);text-decoration:none;transition:.2s}
+.dl-btn:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg);color:#fff}
+.bltable .bl-msrp{font-size:.8rem;color:var(--ink-soft);white-space:nowrap}
+
+/* ===== Andrea Jikal signature (topbar brand) ===== */
+.brand-tag.signature{
+  font-family:"Segoe Script","Snell Roundhand","Brush Script MT","Apple Chancery","Comic Sans MS",cursive;
+  font-style:italic; font-weight:600; letter-spacing:.2px;
+  font-size:1.18em; line-height:1; padding-bottom:2px;
+  background:linear-gradient(90deg,var(--green,#0c7a52),var(--yellow,#e8b400));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  white-space:nowrap;
+}
+body[data-theme="light"] .brand-tag.signature{
+  background:linear-gradient(90deg,#ffd45e,#7fe3b6);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+
+/* ===== Gangnam Beauty in-store badge (brand table) ===== */
+.bltable th:last-child, .bltable td.bl-gnb{ text-align:center; }
+.gnb-badge{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:24px; height:24px; border-radius:50%;
+  background:#0c7a52; color:#fff; font-weight:800; font-size:.82rem;
+  box-shadow:0 1px 3px rgba(12,122,82,.4);
+}
+/* ===== Supply-price promo banner ===== */
+.bl-promo{
+  display:flex; gap:12px; align-items:flex-start;
+  margin-top:16px; padding:14px 18px;
+  background:linear-gradient(100deg,rgba(12,122,82,.10),rgba(232,180,0,.10));
+  border:1px solid rgba(12,122,82,.30); border-left:4px solid #0c7a52;
+  border-radius:12px;
+}
+.bl-promo .bl-promo-ic{
+  flex:0 0 auto; width:26px; height:26px; border-radius:50%;
+  background:#0c7a52; color:#fff; font-weight:800; font-size:.9rem;
+  display:inline-flex; align-items:center; justify-content:center; margin-top:2px;
+}
+.bl-promo p{ margin:0; font-size:.95rem; line-height:1.5; font-weight:500; }
+
+/* ===== Brand table: tighten widths so last (Gangnam) column is fully visible ===== */
+.bltable thead th{padding:10px 9px}
+.bltable td{padding:9px 9px}
+.bltable .bl-logo{width:80px}
+.bltable .bl-rev{min-width:120px}
+.bltable thead th:last-child{white-space:normal;text-align:center;width:78px}
+.bltable td.bl-gnb{width:78px;text-align:center}
+.bltable thead th:nth-child(4),
+.bltable thead th:nth-child(5){white-space:normal}

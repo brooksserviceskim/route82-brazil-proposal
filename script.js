@@ -1,5 +1,5 @@
 /* =====================================================================
-   ROUTE82 × Brazil — K-Beauty Distribution Proposal
+   ROUTE82 × Andrea Jikal's Corporation — K-Beauty Distribution Proposal
    script.js — rendering + interactions. No external dependencies.
    ===================================================================== */
 (function(){
@@ -56,7 +56,7 @@
         <h1 class="welcome-title reveal">${triIn(D.welcome.greeting)}</h1>
         <p class="welcome-sub reveal">${triIn(D.welcome.sub)}</p>
         <div class="welcome-meta reveal">
-          <span>🤝 ROUTE82 × Brazil-side Partner</span>
+          <span>🤝 ROUTE82 × Andrea Jikal's Corporation</span>
           <span>📅 ${pickStatic(D.meta.meeting.date)}</span>
         </div>
         <a class="welcome-scroll reveal" href="#company">${triIn(D.welcome.cta)} ↓</a>
@@ -131,7 +131,7 @@
         <div class="hero-meta reveal">
           <span>📅 <b>${pickStatic(D.meta.meeting.date)}</b></span>
           <span>📍 <b>${pickStatic(D.meta.meeting.place)}</b></span>
-          <span>🤝 ROUTE82 × Brazil-side Partner</span>
+          <span>🤝 ROUTE82 × Andrea Jikal's Corporation</span>
         </div>
       </div></section>`;
 
@@ -475,43 +475,43 @@
     h += sec("roadmap",K("실행 로드맵","Execution Roadmap","Roteiro"),D.roadmap.title,D.roadmap.note,
       `<div class="timeline" style="margin-top:22px">${phases}</div>`);
 
-    /* ---- AGENDA ---- */
-    const ag = D.agenda.items.map((a,i)=>`
-      <div class="acc-item"><div class="acc-head"><span class="anum">${i+1}</span>${triIn(a)}<span class="caret">▾</span></div>
-        <div class="acc-body"><p style="padding-top:12px;color:var(--ink-soft);font-size:.88rem">${agendaNote(i)}</p></div></div>`).join("");
-    h += sec("agenda",K("미팅 아젠다","Meeting Agenda","Agenda"),D.agenda.title,null,
-      `<div class="acc reveal" id="agendaAcc" style="margin-top:22px">${ag}</div>`);
-
-    /* ---- QUESTIONS ---- */
-    const qs = D.questions.items.map((q,i)=>`
-      <div class="qitem reveal"><span class="qn">${String(i+1).padStart(2,'0')}</span><div>${triIn(q)}</div></div>`).join("");
-    h += sec("questions",K("질문 리스트","Questions","Perguntas"),D.questions.title,null,
-      `<div class="qgrid" style="margin-top:22px">${qs}</div>`);
-
-    /* ---- NEXT STEPS ---- */
-    const ns = D.nextSteps.items.map(i=>`
-      <div class="checkitem"><span class="checkbox"></span><span class="ctext">${triIn(i)}</span></div>`).join("");
-    h += sec("nextsteps",K("다음 단계","Next Steps","Próximos Passos"),D.nextSteps.title,null,
-      `<div class="checks reveal" id="checks" style="margin-top:22px">${ns}</div>`);
-
-    /* ---- INTERPRETER ---- */
-    const names = D.interpreter.names.map(n=>`
-      <tr><td>${n.term}</td><td>${triIn(n.note)}</td></tr>`).join("");
-    const cautions = D.interpreter.cautions.map(c=>`<li>${triIn(c)}</li>`).join("");
-    const gloss = D.interpreter.glossary.map(g=>`
-      <tr><td>${g.ko}</td><td>${g.en}</td><td>${g.pt}</td></tr>`).join("");
-    h += sec("interpreter",K("통역사 사전 안내","Interpreter Briefing","Briefing do Intérprete"),D.interpreter.title,null,`
-      <div class="panel reveal" style="margin-top:20px"><div class="subhead">Background</div>${tri(D.interpreter.background)}</div>
-      <div class="grid g2 reveal" style="margin-top:20px">
-        <div class="panel"><div class="subhead">${triIn(D.interpreter.namesTitle)}</div>
-          <table class="gtable"><tbody>${names}</tbody></table></div>
-        <div class="panel"><div class="subhead">${triIn(D.interpreter.cautionTitle)}</div>
-          <ul class="ticklist">${cautions}</ul></div>
+    /* ---- PARTNER BRAND LIST ---- */
+    const lc = v => (v && v.indexOf('http')===0)
+      ? `<a href="${v}" target="_blank" rel="noopener">${v.replace(/^https?:\/\//,'').replace(/\/$/,'')}</a>`
+      : `<span class="bl-tbc">${v}</span>`;
+    const blRows = D.brandlist.rows.map((b,i)=>`
+      <tr>
+        <td class="bl-no">${i+1}</td>
+        <td class="bl-logo"><img loading="lazy" src="${b.logo}" alt="${b.name}" onerror="this.style.visibility='hidden'"></td>
+        <td class="bl-name">${b.name}</td>
+        <td>${lc(b.kr)}</td>
+        <td>${lc(b.en)}</td>
+        <td class="bl-oy ${b.oy.indexOf('O')===0?'yes':''}">${b.oy}</td>
+        <td class="bl-msrp">${b.msrp}</td>
+        <td class="bl-rev">${b.rev}</td>
+        <td class="bl-gnb">${b.gnb?'<span class="gnb-badge" title="Gangnam Beauty">✓</span>':''}</td>
+      </tr>`).join("");
+    h += sec("brandlist",K("브랜드 리스트","Brand List","Marcas"),D.brandlist.title,D.brandlist.note,`
+      <div class="reveal" style="margin-top:14px">
+        <a class="dl-btn" href="ROUTE82_K-Beauty_Brand_List.xlsx" download>⬇ ${triIn({ko:"엑셀로 다운로드 (로고·홈페이지·소비자가·매출 포함, 128개 브랜드)",en:"Download as Excel (logos · sites · MSRP · revenue, 128 brands)",pt:"Baixar em Excel (logos · sites · preço · receita, 128 marcas)"})}</a>
       </div>
-      <div class="reveal" style="margin-top:24px"><div class="subhead">${triIn(D.interpreter.glossaryTitle)}</div>
-        <div class="searchbox" style="margin-top:10px">🔎<input id="glossSearch" type="text" placeholder="검색 / search / pesquisar…"></div>
-        <table class="gtable" id="glossTable"><thead><tr><th>한국어</th><th>English</th><th>Português (BR)</th></tr></thead>
-        <tbody>${gloss}</tbody></table></div>`);
+      <div class="bl-promo reveal"><span class="bl-promo-ic">✓</span><p>${triIn(D.brandlist.promo)}</p></div>
+      <div class="bl-wrap reveal" style="margin-top:14px">
+        <table class="bltable">
+          <thead><tr>
+            <th>#</th><th></th>
+            <th>${triIn(D.brandlist.h.brand)}</th>
+            <th>${triIn(D.brandlist.h.kr)}</th>
+            <th>${triIn(D.brandlist.h.en)}</th>
+            <th>${triIn(D.brandlist.h.oy)}</th>
+            <th>${triIn(D.brandlist.h.msrp)}</th>
+            <th>${triIn(D.brandlist.h.rev)}</th>
+            <th>${triIn(D.brandlist.h.gnb)}</th>
+          </tr></thead>
+          <tbody>${blRows}</tbody>
+        </table>
+      </div>
+      <p class="wb-note reveal" style="margin-top:12px">${D.brandlist.rows.length} ${triIn({ko:"개 브랜드 (ROUTE82 파트너 + 강남뷰티)",en:"brands (ROUTE82 partners + Gangnam Beauty)",pt:"marcas (parceiras ROUTE82 + Gangnam Beauty)"})}</p>`);
 
     /* ---- SOURCES ---- */
     h += sec("sources",K("출처 & 신뢰도","Sources & Confidence","Fontes"),
@@ -543,7 +543,7 @@
   }
   function agendaNote(i){
     const notes = [
-      "ROUTE82 · Brazil-side Partner · interpreter",
+      "ROUTE82 · Andrea Jikal's Corporation · interpreter",
       "Brazil-side vision: scale, store concept, timeline",
       "Who buys, where, online vs offline mix",
       "Which categories first (see Curation section)",
@@ -730,7 +730,7 @@
         if(el.id==="flow") el.classList.add("in");
         io.unobserve(el);
       });
-    },{threshold:.18});
+    },{threshold:0, rootMargin:"0px 0px -8% 0px"});
     $$(".reveal,.stat,#flow").forEach(el=>io.observe(el));
 
     const bo=new IntersectionObserver((es)=>{
